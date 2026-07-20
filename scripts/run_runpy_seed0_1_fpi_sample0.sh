@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Submit run.py FPI gen/inv/rec tests for prompt 0 with seeds 0 and 1.
 #
@@ -8,7 +9,7 @@
 #
 # Useful overrides:
 #   SAMPLE_IDS=0 METHOD=fpi bash scripts/run_runpy_seed0_1_fpi_sample0.sh yagi35
-#   OUTPUT_PREFIX=outputs/runpy_fpi_sample0_seed bash scripts/run_runpy_seed0_1_fpi_sample0.sh
+#   OUTPUT_PREFIX=../artifacts/outputs/runpy_fpi_sample0_seed bash scripts/run_runpy_seed0_1_fpi_sample0.sh
 
 PROJECT_DIR=${PROJECT_DIR:-$PWD}
 
@@ -24,13 +25,13 @@ DELTA_THRESHOLD=${DELTA_THRESHOLD:-5e-12}
 LOSS_DIVERGENCE_THRESHOLD=${LOSS_DIVERGENCE_THRESHOLD:-1.0}
 MAPPING_FILE=${MAPPING_FILE:-PIE_bench/mapping_file.json}
 MODEL_NAME=${MODEL_NAME:-CompVis/stable-diffusion-v1-4}
-SOURCE_INIT_PREFIX=${SOURCE_INIT_PREFIX:-outputs/aidi_gs7_seed}
-OUTPUT_PREFIX=${OUTPUT_PREFIX:-outputs/runpy_${METHOD}_sample${SAMPLE_IDS}_seed}
+SOURCE_INIT_PREFIX=${SOURCE_INIT_PREFIX:-../artifacts/outputs/aidi_gs7_seed}
+OUTPUT_PREFIX=${OUTPUT_PREFIX:-../artifacts/outputs/runpy_${METHOD}_sample${SAMPLE_IDS}_seed}
 LOG_DIR=${LOG_DIR:-log}
 
 mkdir -p "$LOG_DIR"
 
-if [ -z "$1" ]; then
+if [ $# -eq 0 ]; then
     echo "Searching for available nodes in TARGET_NODES: $TARGET_NODES"
     AVAILABLE_NODES=$(sinfo -N -h -o "%N %t" | awk -v nodes="$TARGET_NODES" '
         BEGIN {
@@ -101,10 +102,13 @@ for seed in "${SEEDS[@]}"; do
 #SBATCH --error=${LOG_DIR}/${name}.err
 #SBATCH -v
 
+set -euo pipefail
+
 cd "$PROJECT_DIR"
 
 echo "hostname=\$(hostname)"
 echo "CUDA_VISIBLE_DEVICES=\${CUDA_VISIBLE_DEVICES:-unset}"
+nvidia-smi || true
 
 source ~/anaconda3/etc/profile.d/conda.sh
 conda activate $CONDA_ENV
