@@ -244,7 +244,9 @@ class Inversion:
         loss_prev = 1.0
         final_loss = 0.0
         #print(t)
+        iterations = 0
         while True:
+            iterations += 1
             latent_input = torch.cat([optimal_latent] * 2)
             noise_pred = self.get_noise_pred_single(latent_input, t, self.context)
             noise_uncond, noise_cond = noise_pred.chunk(2)
@@ -257,6 +259,8 @@ class Inversion:
             if loss < self.threshold:
                 break
             if loss > loss_prev:
+                break
+            if self.max_iterations is not None and iterations >= self.max_iterations:
                 break
             optimal_latent = updated_latent
             loss_prev = loss
@@ -317,7 +321,15 @@ class Inversion:
         all_latent, convergence_losses = self.loop(image_latent, guidance_scale)
         return all_latent, convergence_losses
 
-    def __init__(self, model, num_ddim_steps=50, delta_threshold=5e-12, method='afpi', loss_divergence_threshold=1.0):
+    def __init__(
+        self,
+        model,
+        num_ddim_steps=50,
+        delta_threshold=5e-12,
+        method='afpi',
+        loss_divergence_threshold=1.0,
+        max_iterations=None,
+    ):
         self.model = model
         self.scheduler = model.scheduler
         self.tokenizer = self.model.tokenizer
@@ -328,3 +340,4 @@ class Inversion:
         self.threshold = delta_threshold
         self.method = method
         self.loss_divergence_threshold = loss_divergence_threshold
+        self.max_iterations = max_iterations
