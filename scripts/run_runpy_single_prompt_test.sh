@@ -3,16 +3,16 @@ set -euo pipefail
 
 # Submit one run.py sample/prompt test to a Slurm GPU node.
 #
-# Run this from the source directory so run.py imports and relative defaults work:
-#   cd /home/yzeng/remote/skip_inv/src
-#   bash ../job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+# Usage:
+#   bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
 #
 # Useful overrides:
-#   SAMPLE_IDS=0 SEED=0 METHOD=fpi bash ../job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
-#   OUTPUT=../artifacts/outputs/run_py_sample0_seed0_fpi bash ../job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
-#   SOURCE_INIT_PREFIX=../artifacts/outputs/aidi_gs7_seed bash ../job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   SAMPLE_IDS=0 SEED=0 METHOD=fpi bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   OUTPUT=../artifacts/outputs/run_py_sample0_seed0_fpi bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   SOURCE_INIT_PREFIX=../artifacts/outputs/aidi_gs7_seed bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+PROJECT_DIR=${PROJECT_DIR:-$(cd "$SCRIPT_DIR/../../src" && pwd)}
 source "$SCRIPT_DIR/lib/slurm_common.sh"
 
 CONDA_ENV=${CONDA_ENV:-afpi}
@@ -82,7 +82,7 @@ job_id=$(sbatch --parsable \
     --cpus-per-task="$CPUS_PER_TASK" \
     --output="$LOG_DIR/${JOB_NAME}.out" \
     --error="$LOG_DIR/${JOB_NAME}.err" \
-    --wrap="bash -lc 'source ~/anaconda3/etc/profile.d/conda.sh && conda activate $CONDA_ENV && $quoted_cmd'")
+    --wrap="bash -c 'echo hostname=\$(hostname); echo CUDA_VISIBLE_DEVICES=\${CUDA_VISIBLE_DEVICES:-unset}; source ~/anaconda3/etc/profile.d/conda.sh && conda activate $CONDA_ENV && python -c \"import torch; print(\\\"torch_cuda_available=\\\" + str(torch.cuda.is_available())); print(\\\"torch_cuda_device_count=\\\" + str(torch.cuda.device_count())); raise SystemExit(0 if torch.cuda.is_available() else 1)\" && $quoted_cmd'")
 
 echo "Submitted job: $job_id"
 echo "Check status with: squeue -u $(whoami)"
