@@ -86,7 +86,6 @@ def main(
     delta_threshold: float = 5e-12,
     method: str = "afpi",
     loss_divergence_threshold: float = 1.0,
-    max_iterations: int | None = None,
     mapping_file: str = "PIE_bench/mapping_file.json",
     sample_ids: str = "all",
     model_name: str = "CompVis/stable-diffusion-v1-4",
@@ -105,7 +104,6 @@ def main(
         delta_threshold=delta_threshold,
         method=method,
         loss_divergence_threshold=loss_divergence_threshold,
-        max_iterations=max_iterations,
     )
 
     editing_instruction = load_mapping(mapping_file)
@@ -167,7 +165,6 @@ def main(
         "num_of_ddim_steps": num_of_ddim_steps,
         "delta_threshold": delta_threshold,
         "loss_divergence_threshold": loss_divergence_threshold,
-        "max_iterations": max_iterations,
         "sample_ids": selected_ids,
         "num_samples": len(selected_ids),
         "shared_init_latent_path": str(output_path / "shared_init_latent.pt"),
@@ -185,12 +182,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--num_of_ddim_steps", type=int, default=50)
     parser.add_argument("--delta_threshold", type=float, default=5e-12)
     parser.add_argument("--loss_divergence_threshold", type=float, default=1.0)
-    parser.add_argument(
-        "--max_iterations",
-        type=int,
-        default=0,
-        help="Optional per-step FPI iteration cap; 0 keeps the original unbounded behavior.",
-    )
     parser.add_argument("--guidance_scale", type=float, default=7.0)
     parser.add_argument("--output", type=str, default="outputs")
     parser.add_argument("--seed", type=int, default=0)
@@ -220,7 +211,6 @@ if __name__ == "__main__":
         delta_threshold=args.delta_threshold,
         method=args.method,
         loss_divergence_threshold=args.loss_divergence_threshold,
-        max_iterations=args.max_iterations if args.max_iterations > 0 else None,
         mapping_file=args.mapping_file,
         sample_ids=args.sample_ids,
         model_name=args.model_name,
