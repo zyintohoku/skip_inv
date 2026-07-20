@@ -4,12 +4,12 @@ set -euo pipefail
 # Submit one run.py sample/prompt test to a Slurm GPU node.
 #
 # Usage:
-#   bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   bash /home/yan/po1/yan/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
 #
 # Useful overrides:
-#   SAMPLE_IDS=0 SEED=0 METHOD=fpi bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
-#   OUTPUT=../artifacts/outputs/run_py_sample0_seed0_fpi bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
-#   SOURCE_INIT_PREFIX=../artifacts/outputs/aidi_gs7_seed bash /home/yzeng/remote/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   SAMPLE_IDS=0 SEED=0 METHOD=fpi bash /path/to/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   OUTPUT=../artifacts/outputs/run_py_sample0_seed0_fpi bash /path/to/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
+#   SOURCE_INIT_PREFIX=../artifacts/outputs/aidi_gs7_seed bash /path/to/skip_inv/job_scripts/scripts/run_runpy_single_prompt_test.sh yagi35
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 PROJECT_DIR=${PROJECT_DIR:-$(cd "$SCRIPT_DIR/../../src" && pwd)}
