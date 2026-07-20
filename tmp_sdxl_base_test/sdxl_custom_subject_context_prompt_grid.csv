@@ -1,0 +1,141 @@
+group,label,context,prompt
+sdxl_custom_subject_context,squirrel,rock,a squirrel on a rock
+sdxl_custom_subject_context,squirrel,grass,a squirrel on grass
+sdxl_custom_subject_context,squirrel,shallow_water,a squirrel in shallow water
+sdxl_custom_subject_context,squirrel,snowy_field,a squirrel in a snowy field
+sdxl_custom_subject_context,squirrel,transparent_glass_jar,a squirrel inside a transparent glass jar
+sdxl_custom_subject_context,squirrel,streetlight_night,a squirrel under a streetlight at night
+sdxl_custom_subject_context,squirrel,wooden_fence,a squirrel on a wooden fence
+sdxl_custom_subject_context,squirrel,wooden_table,a squirrel on a wooden table
+sdxl_custom_subject_context,squirrel,tree_branch,a squirrel on a tree branch
+sdxl_custom_subject_context,squirrel,bare,a squirrel
+sdxl_custom_subject_context,cat,rock,a cat on a rock
+sdxl_custom_subject_context,cat,grass,a cat on grass
+sdxl_custom_subject_context,cat,shallow_water,a cat in shallow water
+sdxl_custom_subject_context,cat,snowy_field,a cat in a snowy field
+sdxl_custom_subject_context,cat,transparent_glass_jar,a cat inside a transparent glass jar
+sdxl_custom_subject_context,cat,streetlight_night,a cat under a streetlight at night
+sdxl_custom_subject_context,cat,wooden_fence,a cat on a wooden fence
+sdxl_custom_subject_context,cat,wooden_table,a cat on a wooden table
+sdxl_custom_subject_context,cat,tree_branch,a cat on a tree branch
+sdxl_custom_subject_context,cat,bare,a cat
+sdxl_custom_subject_context,kitten,rock,a kitten on a rock
+sdxl_custom_subject_context,kitten,grass,a kitten on grass
+sdxl_custom_subject_context,kitten,shallow_water,a kitten in shallow water
+sdxl_custom_subject_context,kitten,snowy_field,a kitten in a snowy field
+sdxl_custom_subject_context,kitten,transparent_glass_jar,a kitten inside a transparent glass jar
+sdxl_custom_subject_context,kitten,streetlight_night,a kitten under a streetlight at night
+sdxl_custom_subject_context,kitten,wooden_fence,a kitten on a wooden fence
+sdxl_custom_subject_context,kitten,wooden_table,a kitten on a wooden table
+sdxl_custom_subject_context,kitten,tree_branch,a kitten on a tree branch
+sdxl_custom_subject_context,kitten,bare,a kitten
+sdxl_custom_subject_context,bird,rock,a bird on a rock
+sdxl_custom_subject_context,bird,grass,a bird on grass
+sdxl_custom_subject_context,bird,shallow_water,a bird in shallow water
+sdxl_custom_subject_context,bird,snowy_field,a bird in a snowy field
+sdxl_custom_subject_context,bird,transparent_glass_jar,a bird inside a transparent glass jar
+sdxl_custom_subject_context,bird,streetlight_night,a bird under a streetlight at night
+sdxl_custom_subject_context,bird,wooden_fence,a bird on a wooden fence
+sdxl_custom_subject_context,bird,wooden_table,a bird on a wooden table
+sdxl_custom_subject_context,bird,tree_branch,a bird on a tree branch
+sdxl_custom_subject_context,bird,bare,a bird
+sdxl_custom_subject_context,owl,rock,an owl on a rock
+sdxl_custom_subject_context,owl,grass,an owl on grass
+sdxl_custom_subject_context,owl,shallow_water,an owl in shallow water
+sdxl_custom_subject_context,owl,snowy_field,an owl in a snowy field
+sdxl_custom_subject_context,owl,transparent_glass_jar,an owl inside a transparent glass jar
+sdxl_custom_subject_context,owl,streetlight_night,an owl under a streetlight at night
+sdxl_custom_subject_context,owl,wooden_fence,an owl on a wooden fence
+sdxl_custom_subject_context,owl,wooden_table,an owl on a wooden table
+sdxl_custom_subject_context,owl,tree_branch,an owl on a tree branch
+sdxl_custom_subject_context,owl,bare,an owl
+sdxl_custom_subject_context,dog,rock,a dog on a rock
+sdxl_custom_subject_context,dog,grass,a dog on grass
+sdxl_custom_subject_context,dog,shallow_water,a dog in shallow water
+sdxl_custom_subject_context,dog,snowy_field,a dog in a snowy field
+sdxl_custom_subject_context,dog,transparent_glass_jar,a dog inside a transparent glass jar
+sdxl_custom_subject_context,dog,streetlight_night,a dog under a streetlight at night
+sdxl_custom_subject_context,dog,wooden_fence,a dog on a wooden fence
+sdxl_custom_subject_context,dog,wooden_table,a dog on a wooden table
+sdxl_custom_subject_context,dog,tree_branch,a dog on a tree branch
+sdxl_custom_subject_context,dog,bare,a dog
+sdxl_custom_subject_context,puppy,rock,a puppy on a rock
+sdxl_custom_subject_context,puppy,grass,a puppy on grass
+sdxl_custom_subject_context,puppy,shallow_water,a puppy in shallow water
+sdxl_custom_subject_context,puppy,snowy_field,a puppy in a snowy field
+sdxl_custom_subject_context,puppy,transparent_glass_jar,a puppy inside a transparent glass jar
+sdxl_custom_subject_context,puppy,streetlight_night,a puppy under a streetlight at night
+sdxl_custom_subject_context,puppy,wooden_fence,a puppy on a wooden fence
+sdxl_custom_subject_context,puppy,wooden_table,a puppy on a wooden table
+sdxl_custom_subject_context,puppy,tree_branch,a puppy on a tree branch
+sdxl_custom_subject_context,puppy,bare,a puppy
+sdxl_custom_subject_context,rabbit,rock,a rabbit on a rock
+sdxl_custom_subject_context,rabbit,grass,a rabbit on grass
+sdxl_custom_subject_context,rabbit,shallow_water,a rabbit in shallow water
+sdxl_custom_subject_context,rabbit,snowy_field,a rabbit in a snowy field
+sdxl_custom_subject_context,rabbit,transparent_glass_jar,a rabbit inside a transparent glass jar
+sdxl_custom_subject_context,rabbit,streetlight_night,a rabbit under a streetlight at night
+sdxl_custom_subject_context,rabbit,wooden_fence,a rabbit on a wooden fence
+sdxl_custom_subject_context,rabbit,wooden_table,a rabbit on a wooden table
+sdxl_custom_subject_context,rabbit,tree_branch,a rabbit on a tree branch
+sdxl_custom_subject_context,rabbit,bare,a rabbit
+sdxl_custom_subject_context,fox,rock,a fox on a rock
+sdxl_custom_subject_context,fox,grass,a fox on grass
+sdxl_custom_subject_context,fox,shallow_water,a fox in shallow water
+sdxl_custom_subject_context,fox,snowy_field,a fox in a snowy field
+sdxl_custom_subject_context,fox,transparent_glass_jar,a fox inside a transparent glass jar
+sdxl_custom_subject_context,fox,streetlight_night,a fox under a streetlight at night
+sdxl_custom_subject_context,fox,wooden_fence,a fox on a wooden fence
+sdxl_custom_subject_context,fox,wooden_table,a fox on a wooden table
+sdxl_custom_subject_context,fox,tree_branch,a fox on a tree branch
+sdxl_custom_subject_context,fox,bare,a fox
+sdxl_custom_subject_context,duck,rock,a duck on a rock
+sdxl_custom_subject_context,duck,grass,a duck on grass
+sdxl_custom_subject_context,duck,shallow_water,a duck in shallow water
+sdxl_custom_subject_context,duck,snowy_field,a duck in a snowy field
+sdxl_custom_subject_context,duck,transparent_glass_jar,a duck inside a transparent glass jar
+sdxl_custom_subject_context,duck,streetlight_night,a duck under a streetlight at night
+sdxl_custom_subject_context,duck,wooden_fence,a duck on a wooden fence
+sdxl_custom_subject_context,duck,wooden_table,a duck on a wooden table
+sdxl_custom_subject_context,duck,tree_branch,a duck on a tree branch
+sdxl_custom_subject_context,duck,bare,a duck
+sdxl_custom_subject_context,bee,rock,a bee on a rock
+sdxl_custom_subject_context,bee,grass,a bee on grass
+sdxl_custom_subject_context,bee,shallow_water,a bee in shallow water
+sdxl_custom_subject_context,bee,snowy_field,a bee in a snowy field
+sdxl_custom_subject_context,bee,transparent_glass_jar,a bee inside a transparent glass jar
+sdxl_custom_subject_context,bee,streetlight_night,a bee under a streetlight at night
+sdxl_custom_subject_context,bee,wooden_fence,a bee on a wooden fence
+sdxl_custom_subject_context,bee,wooden_table,a bee on a wooden table
+sdxl_custom_subject_context,bee,tree_branch,a bee on a tree branch
+sdxl_custom_subject_context,bee,bare,a bee
+sdxl_custom_subject_context,rat,rock,a rat on a rock
+sdxl_custom_subject_context,rat,grass,a rat on grass
+sdxl_custom_subject_context,rat,shallow_water,a rat in shallow water
+sdxl_custom_subject_context,rat,snowy_field,a rat in a snowy field
+sdxl_custom_subject_context,rat,transparent_glass_jar,a rat inside a transparent glass jar
+sdxl_custom_subject_context,rat,streetlight_night,a rat under a streetlight at night
+sdxl_custom_subject_context,rat,wooden_fence,a rat on a wooden fence
+sdxl_custom_subject_context,rat,wooden_table,a rat on a wooden table
+sdxl_custom_subject_context,rat,tree_branch,a rat on a tree branch
+sdxl_custom_subject_context,rat,bare,a rat
+sdxl_custom_subject_context,mushroom,rock,a mushroom on a rock
+sdxl_custom_subject_context,mushroom,grass,a mushroom on grass
+sdxl_custom_subject_context,mushroom,shallow_water,a mushroom in shallow water
+sdxl_custom_subject_context,mushroom,snowy_field,a mushroom in a snowy field
+sdxl_custom_subject_context,mushroom,transparent_glass_jar,a mushroom inside a transparent glass jar
+sdxl_custom_subject_context,mushroom,streetlight_night,a mushroom under a streetlight at night
+sdxl_custom_subject_context,mushroom,wooden_fence,a mushroom on a wooden fence
+sdxl_custom_subject_context,mushroom,wooden_table,a mushroom on a wooden table
+sdxl_custom_subject_context,mushroom,tree_branch,a mushroom on a tree branch
+sdxl_custom_subject_context,mushroom,bare,a mushroom
+sdxl_custom_subject_context,apple,rock,an apple on a rock
+sdxl_custom_subject_context,apple,grass,an apple on grass
+sdxl_custom_subject_context,apple,shallow_water,an apple in shallow water
+sdxl_custom_subject_context,apple,snowy_field,an apple in a snowy field
+sdxl_custom_subject_context,apple,transparent_glass_jar,an apple inside a transparent glass jar
+sdxl_custom_subject_context,apple,streetlight_night,an apple under a streetlight at night
+sdxl_custom_subject_context,apple,wooden_fence,an apple on a wooden fence
+sdxl_custom_subject_context,apple,wooden_table,an apple on a wooden table
+sdxl_custom_subject_context,apple,tree_branch,an apple on a tree branch
+sdxl_custom_subject_context,apple,bare,an apple
