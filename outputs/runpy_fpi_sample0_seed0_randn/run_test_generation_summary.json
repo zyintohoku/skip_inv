@@ -1,0 +1,17 @@
+{
+  "script": "run_test.py",
+  "output_dir": "outputs/runpy_fpi_sample0_seed0_randn",
+  "mapping_file": "PIE_bench/mapping_file.json",
+  "model_name": "CompVis/stable-diffusion-v1-4",
+  "guidance_scale": 7.0,
+  "num_of_ddim_steps": 50,
+  "sample_ids": [0],
+  "prompt": "a slanted mountain bicycle on the road in front of a building",
+  "seed": 0,
+  "init_latent_sampling": "torch.randn",
+  "device": "cuda",
+  "generation_only": true,
+  "generated_image": "outputs/runpy_fpi_sample0_seed0_randn/run_test_0gen.png",
+  "init_latents": "outputs/runpy_fpi_sample0_seed0_randn/run_test_init_latents.pt",
+  "gen_latents": "outputs/runpy_fpi_sample0_seed0_randn/run_test_gen_latents.pt"
+}
