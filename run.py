@@ -201,8 +201,9 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
     torch.manual_seed(args.seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(args.seed)
+    # Disabled for testing: keep CUDA RNG seeding out of this entrypoint.
+    # if torch.cuda.is_available():
+    #     torch.cuda.manual_seed_all(args.seed)
 
     main(
         output_dir=args.output,

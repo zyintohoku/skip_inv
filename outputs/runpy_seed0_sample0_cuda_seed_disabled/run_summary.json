@@ -1,0 +1,20 @@
+{
+  "output_dir": "outputs/runpy_seed0_sample0_cuda_seed_disabled",
+  "mapping_file": "PIE_bench/mapping_file.json",
+  "model_name": "CompVis/stable-diffusion-v1-4",
+  "method": "ddim",
+  "guidance_scale": 7.0,
+  "num_of_ddim_steps": 50,
+  "delta_threshold": 5e-12,
+  "loss_divergence_threshold": 1.0,
+  "sample_ids": [
+    0
+  ],
+  "num_samples": 1,
+  "shared_init_latent_path": "outputs/runpy_seed0_sample0_cuda_seed_disabled/shared_init_latent.pt",
+  "init_latent_sampling": "torch.randn",
+  "seed": 0,
+  "source_init_prefix": "outputs/aidi_gs7_seed",
+  "total_time": 8.439615964889526,
+  "avg_time": 8.439615964889526
+}
