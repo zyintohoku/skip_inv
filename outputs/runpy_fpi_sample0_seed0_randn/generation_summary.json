@@ -1,0 +1,15 @@
+{
+  "output_dir": "outputs/runpy_fpi_sample0_seed0_randn",
+  "mapping_file": "PIE_bench/mapping_file.json",
+  "model_name": "CompVis/stable-diffusion-v1-4",
+  "method": "fpi",
+  "guidance_scale": 7.0,
+  "num_of_ddim_steps": 50,
+  "sample_ids": [0],
+  "prompt": "a slanted mountain bicycle on the road in front of a building",
+  "seed": 0,
+  "init_latent_sampling": "torch.randn",
+  "generated_image": "outputs/runpy_fpi_sample0_seed0_randn/0gen.png",
+  "shared_init_latent_path": "outputs/runpy_fpi_sample0_seed0_randn/shared_init_latent.pt",
+  "completed_stage": "generation"
+}

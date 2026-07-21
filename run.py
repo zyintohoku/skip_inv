@@ -3,7 +3,6 @@
 
 import argparse
 import json
-import os
 import time
 from pathlib import Path
 
@@ -60,22 +59,22 @@ def parse_sample_ids(spec: str, total: int) -> list[int]:
     return sample_ids
 
 
-def load_shared_init_latent(source_prefix: str, seed: int, device: torch.device) -> tuple[torch.Tensor, Path]:
-    path = Path(f"{source_prefix}{seed}") / "init_latents.pt"
-    if not path.exists():
-        raise FileNotFoundError(f"Initial latent file not found: {path}")
-
-    latents = torch.load(path, map_location="cpu")
-    if isinstance(latents, list):
-        if not latents:
-            raise ValueError(f"No latents found in: {path}")
-        latent = latents[0]
-    elif torch.is_tensor(latents):
-        latent = latents[0:1] if latents.ndim == 4 else latents
-    else:
-        raise TypeError(f"Expected list or tensor in {path}, got {type(latents)!r}")
-
-    return latent.detach().clone().to(device), path
+def sample_shared_init_latent(
+    pipe: MyStableDiffusionPipeline,
+    seed: int,
+    device: torch.device,
+) -> torch.Tensor:
+    height = pipe.unet.config.sample_size * pipe.vae_scale_factor
+    width = pipe.unet.config.sample_size * pipe.vae_scale_factor
+    latent_shape = (
+        1,
+        pipe.unet.in_channels,
+        height // pipe.vae_scale_factor,
+        width // pipe.vae_scale_factor,
+    )
+    generator = torch.Generator(device=device.type if device.type == "cuda" else "cpu")
+    generator.manual_seed(seed)
+    return torch.randn(latent_shape, generator=generator, device=device, dtype=pipe.unet.dtype)
 
 
 @torch.no_grad()
@@ -112,7 +111,7 @@ def main(
 
     init_latents, inv_latents, gen_latents, rec_latents = [], [], [], []
     total_time = 0.0
-    shared_init_latent, source_init_path = load_shared_init_latent(source_init_prefix, seed, device)
+    shared_init_latent = sample_shared_init_latent(ldm_stable, seed, device)
     torch.save(shared_init_latent.detach().cpu(), output_path / "shared_init_latent.pt")
 
     for position, sample_id in enumerate(selected_ids, start=1):
@@ -168,8 +167,9 @@ def main(
         "sample_ids": selected_ids,
         "num_samples": len(selected_ids),
         "shared_init_latent_path": str(output_path / "shared_init_latent.pt"),
-        "source_init_latent_path": str(source_init_path),
-        "source_init_latent_index": 0,
+        "init_latent_sampling": "torch.randn",
+        "seed": seed,
+        "source_init_prefix": source_init_prefix,
         "total_time": total_time,
         "avg_time": avg_time,
     }
