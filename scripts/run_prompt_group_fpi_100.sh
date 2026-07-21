@@ -10,7 +10,7 @@ set -euo pipefail
 #
 # Useful overrides:
 #   PROMPT_GROUPS=best,worst SEEDS=0-99 TOP_K=1 bash scripts/run_prompt_group_fpi_100.sh yagi35 yagi38
-#   OUTPUT_DIR=outputs/prompt_group_top1_fpi_100 DRY_RUN=1 bash scripts/run_prompt_group_fpi_100.sh yagi35
+#   OUTPUT_DIR=../artifacts/outputs/prompt_group_top1_fpi_100 DRY_RUN=1 bash scripts/run_prompt_group_fpi_100.sh yagi35
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 source "$SCRIPT_DIR/lib/slurm_common.sh"
@@ -30,7 +30,7 @@ DELTA_THRESHOLD=${DELTA_THRESHOLD:-5e-12}
 LOSS_DIVERGENCE_THRESHOLD=${LOSS_DIVERGENCE_THRESHOLD:-1.0}
 MODEL_NAME=${MODEL_NAME:-CompVis/stable-diffusion-v1-4}
 RESULTS_DIR=${RESULTS_DIR:-../artifacts/results/fpi_gs7_seed_psnr}
-OUTPUT_DIR=${OUTPUT_DIR:-outputs/prompt_group_top1_fpi_100}
+OUTPUT_DIR=${OUTPUT_DIR:-../artifacts/outputs/prompt_group_top1_fpi_100}
 SAVE_IMAGES=${SAVE_IMAGES:-1}
 SAVE_LATENTS=${SAVE_LATENTS:-1}
 DISABLE_PROGRESS_BAR=${DISABLE_PROGRESS_BAR:-1}

@@ -239,7 +239,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--group", choices=sorted(GROUP_FILES), required=True)
     parser.add_argument("--results_dir", default=str(REPO_ROOT.parent / "artifacts" / "results" / "fpi_gs7_seed_psnr"))
-    parser.add_argument("--output_dir", default="outputs/prompt_group_fpi_100")
+    parser.add_argument("--output_dir", default=str(REPO_ROOT.parent / "artifacts" / "outputs" / "prompt_group_top1_fpi_100"))
     parser.add_argument("--model_name", default="CompVis/stable-diffusion-v1-4")
     parser.add_argument("--method", default="fpi", choices=["fpi", "afpi", "aidi", "ddim"])
     parser.add_argument("--guidance_scale", type=float, default=7.0)

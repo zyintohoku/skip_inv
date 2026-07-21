@@ -2,7 +2,7 @@
 
 This directory is a lightweight snapshot from the running top1 prompt group experiment.
 
-- Source run output: `outputs/prompt_group_top1_fpi_100`
+- Source run output: `../artifacts/outputs/prompt_group_top1_fpi_100`
 - Groups included in this snapshot: `best`, `worst`
 - Seeds included as images: `0`, `1`, `2`
 - Files included per seed: generated image (`*_gen.png`) and reconstructed image (`*_rec.png`)
