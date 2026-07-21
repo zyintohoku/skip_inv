@@ -44,17 +44,13 @@ def parse_sample_ids(spec, total):
 def main(
     output_dir="output",
     guidance_scale=7.0,
-    K_round=50,
     num_of_ddim_steps=50,
     delta_threshold=5e-12,
     method="afpi",
-    fp_th=0.7,
-    conv_check=True,
     loss_divergence_threshold=1.0,
     mapping_file="PIE_bench/mapping_file.json",
     sample_ids="all",
     model_name="CompVis/stable-diffusion-v1-4",
-    source_init_prefix="outputs/aidi_gs7_seed",
     **kwargs,
 ):
     os.makedirs(output_dir, exist_ok=True)
@@ -124,7 +120,6 @@ def main(
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--K_round", type=int, default=50, help="Optimization Round")
     parser.add_argument("--num_of_ddim_steps", type=int, default=50, help="Blended word needed for P2P")
     parser.add_argument("--delta_threshold", type=float, default=5e-12, help="Delta threshold")
     parser.add_argument("--loss_divergence_threshold", type=float, default=1.0)
@@ -135,9 +130,6 @@ def parse_args():
     parser.add_argument("--mapping_file", type=str, default="PIE_bench/mapping_file.json")
     parser.add_argument("--sample_ids", type=str, default="all")
     parser.add_argument("--model_name", type=str, default="CompVis/stable-diffusion-v1-4")
-    parser.add_argument("--source_init_prefix", type=str, default="outputs/aidi_gs7_seed")
-    parser.add_argument("--conv_check", action="store_true")
-    parser.add_argument("--fp_th", type=float, default=0.7)
     return parser.parse_args()
 
 
@@ -145,17 +137,13 @@ if __name__ == "__main__":
     args = parse_args()
     params = {}
     params["guidance_scale"] = args.guidance_scale
-    params["K_round"] = args.K_round
     params["num_of_ddim_steps"] = args.num_of_ddim_steps
     params["delta_threshold"] = args.delta_threshold
     params["loss_divergence_threshold"] = args.loss_divergence_threshold
-    params["conv_check"] = args.conv_check
     params["output_dir"] = args.output
     params["method"] = args.method
-    params["fp_th"] = args.fp_th
     params["mapping_file"] = args.mapping_file
     params["sample_ids"] = args.sample_ids
     params["model_name"] = args.model_name
-    params["source_init_prefix"] = args.source_init_prefix
     torch.manual_seed(args.seed)
     main(**params)

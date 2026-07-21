@@ -30,7 +30,6 @@ LOSS_DIVERGENCE_THRESHOLD=${LOSS_DIVERGENCE_THRESHOLD:-1.0}
 MAPPING_FILE=${MAPPING_FILE:-PIE_bench/mapping_file.json}
 SAMPLE_IDS=${SAMPLE_IDS:-all}
 MODEL_NAME=${MODEL_NAME:-CompVis/stable-diffusion-v1-4}
-SOURCE_INIT_PREFIX=${SOURCE_INIT_PREFIX:-outputs/aidi_gs7_seed}
 OUTPUT_PREFIX=${OUTPUT_PREFIX:-outputs/${METHOD}_gs${GUIDANCE_SCALE}_shared_init_seed}
 JOB_NAME_PREFIX=${JOB_NAME_PREFIX:-${METHOD}_gs${GUIDANCE_SCALE}_shared_s}
 
@@ -84,7 +83,6 @@ echo "Guidance scale: $GUIDANCE_SCALE"
 echo "Output prefix: $OUTPUT_PREFIX"
 echo "Mapping file: $MAPPING_FILE"
 echo "Sample ids: $SAMPLE_IDS"
-echo "Source init prefix: $SOURCE_INIT_PREFIX"
 echo "Node slots: ${NODE_SLOTS_ARRAY[*]}"
 echo ""
 
@@ -108,7 +106,6 @@ for idx in "${!SEEDS[@]}"; do
         --mapping_file "$MAPPING_FILE"
         --sample_ids "$SAMPLE_IDS"
         --model_name "$MODEL_NAME"
-        --source_init_prefix "$SOURCE_INIT_PREFIX"
     )
     printf -v quoted_cmd '%q ' "${cmd[@]}"
 
