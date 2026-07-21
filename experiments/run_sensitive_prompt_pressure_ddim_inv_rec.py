@@ -24,8 +24,8 @@ PRESSURE_FORMULA = {
     "ddim_eta0_update": "x_prev = sqrt(alpha_prev / alpha_t) * x_t + c_t * epsilon_hat",
     "epsilon_coefficient": "c_t = sqrt(1 - alpha_prev) - sqrt(alpha_prev * (1 - alpha_t) / alpha_t)",
     "cfg_noise": "epsilon_hat = epsilon_uncond + guidance_scale * (epsilon_cond - epsilon_uncond)",
-    "conditional_prompt_term": "guidance_scale * c_t * epsilon_cond",
-    "prompt_pressure": "P_t = || guidance_scale * c_t * epsilon_cond ||_2",
+    "prompt_delta_term": "guidance_scale * abs(c_t) * (epsilon_cond - epsilon_uncond)",
+    "prompt_pressure": "P_t = guidance_scale * abs(c_t) * ||epsilon_cond - epsilon_uncond||_2",
     "total_prompt_pressure": "sum_t P_t",
 }
 
@@ -174,10 +174,10 @@ def generate_with_prompt_pressure(
             noise_guided = noise_uncond + guidance_scale * (noise_cond - noise_uncond)
 
             eps_coeff = ddim_epsilon_coefficient(pipe.scheduler, t).to(device=device)
-            weighted_cond = guidance_scale * eps_coeff * noise_cond.float()
-            prompt_pressure = torch.linalg.vector_norm(weighted_cond).item()
+            guidance_delta = (noise_cond - noise_uncond).float()
+            guidance_delta_l2 = torch.linalg.vector_norm(guidance_delta).item()
+            prompt_pressure = float(guidance_scale) * abs(float(eps_coeff.item())) * guidance_delta_l2
             eps_cond_l2 = torch.linalg.vector_norm(noise_cond.float()).item()
-            guidance_delta_l2 = torch.linalg.vector_norm((noise_cond - noise_uncond).float()).item()
 
             prev_latents = pipe.scheduler.step(noise_guided, t, latents, **extra_step_kwargs).prev_sample
             latent_step_l2 = torch.linalg.vector_norm((prev_latents - latents).float()).item()
